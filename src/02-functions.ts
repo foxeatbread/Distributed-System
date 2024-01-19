@@ -40,22 +40,22 @@ addColleague(colleaguesdata.current, "Sheild O Connell", "HR", "soc@here.com");
 function sortColleagues(
     colleagues: Colleague[],
     sorter: (c1: Colleague, c2: Colleague) => number,
-    max? : number
-  ): EmailContact[] {
+    max?: number
+): EmailContact[] {
     let end = colleagues.length;
     if (max !== undefined) {
-       end = max < 2 ? 1 : max
+        end = max < 2 ? 1 : max
     }
     const sorted = colleagues.sort(sorter);
-    const fullResult =  sorted.map((ce) => ({ name: ce.name, email: ce.contact.email }));
-    return fullResult.slice(0,end)
-  }
+    const fullResult = sorted.map((ce) => ({ name: ce.name, email: ce.contact.email }));
+    return fullResult.slice(0, end)
+}
 
 //   console.log(sortColleagues(colleaguesdata.current, (a, b) => a.contact.extension - b.contact.extension));
 //   console.log(sortColleagues(colleaguesdata.current, (a, b) => a.name.length - b.name.length));
-console.log(sortColleagues(colleaguesdata.current, (a, b) => (a.contact.extension - b.contact.extension), 3));
-console.log(sortColleagues(colleaguesdata.current, (a, b) => (a.name.length - b.name.length), 1));
-console.log(sortColleagues(colleaguesdata.current, (a, b) => (a.name.length - b.name.length)));
+// console.log(sortColleagues(colleaguesdata.current, (a, b) => (a.contact.extension - b.contact.extension), 3));
+// console.log(sortColleagues(colleaguesdata.current, (a, b) => (a.name.length - b.name.length), 1));
+// console.log(sortColleagues(colleaguesdata.current, (a, b) => (a.name.length - b.name.length)));
 
 function findFriends(friendsArray: Friend[], condition: (friend: Friend) => boolean): string[] {
     return friendsArray.filter(condition).map((friend) => friend.name);
@@ -63,3 +63,13 @@ function findFriends(friendsArray: Friend[], condition: (friend: Friend) => bool
 
 // console.log(findFriends(friendsdata, (friend) => friend.name.startsWith('Pa')));
 // console.log(findFriends(friendsdata, (friend) => friend.age < 35));
+
+// Function to add interest to a friend's interests array
+function addInterest(friend: Friend, interest: string): string[] {
+    if (!friend.interests) {
+        friend.interests = []; // If interests array is not defined, create a new one
+    }
+    friend.interests.push(interest);
+    return friend.interests;
+}
+console.log(addInterest(friendsdata[0], 'Politics'));
