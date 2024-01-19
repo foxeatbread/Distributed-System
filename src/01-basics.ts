@@ -15,7 +15,7 @@ const friend1 = {
   const friends = [friend1, friend2];
 //   console.log(friends[1]);
   
-  //   -------------------
+//   -------------------
 
   const colleague1 = {
     name: "Ralph Graham",
@@ -50,6 +50,6 @@ const friend1 = {
   
 //   console.log(colleagues.current[0]);\
 
-export const friendsData = [friend1, friend2];
+export const friendsdata = [friend1, friend2];
 
-export const colleaguesData = { ...colleagues };
+export const colleaguesdata = { ...colleagues };
